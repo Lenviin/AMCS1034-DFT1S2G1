@@ -1,1 +1,217 @@
+#P1Q1
+
+import random
+import time
+
+NUMBER_OF_ELEMENTS = 10000
+
+# Create a List
+list_1 = list(range(NUMBER_OF_ELEMENTS))
+random.shuffle(list_1)
+
+# Create a set from the list 
+set_1 = set(list_1)
+
+# Test if an element is in the set
+start_time = time.time() # Get start time
+for i in range(NUMBER_OF_ELEMENTS):
+    i in set_1
+
+end_time = time.time() # Get end time
+run_time = int((end_time - start_time) * 1000) # Get test time
+print("To test if", NUMBER_OF_ELEMENTS, "elements are in the set")
+print("--> The runtime is", run_time, "milliseconds")
+
+#Test if an element is in the list 
+start_time = time.time() # Get start time
+for i in range(NUMBER_OF_ELEMENTS):
+    i in list_1
+
+end_time = time.time() # Get end time
+run_time = int((end_time - start_time) * 1000) # Get test time
+print("\nTo test if", NUMBER_OF_ELEMENTS, "elements are in the list")
+print("--> The runtime is", run_time, "milliseconds")
+
+#Remove elements from a set one at a time
+start_time = time.time() # Get start time
+for i in range(NUMBER_OF_ELEMENTS):
+    set_1.remove(i)
+
+end_time = time.time() # Get end time
+run_time = int((end_time - start_time) * 1000) # Get test time
+print("\nTo remove", NUMBER_OF_ELEMENTS, "elements from the set")
+print("--> The runtime is", run_time, "milliseconds")
+
+#Remove elements from a list one at a time
+start_time = time.time() # Get start time
+for i in range(NUMBER_OF_ELEMENTS):
+    list_1.remove(i)
+
+end_time = time.time() #Get end time
+run_time = int((end_time - start_time) * 1000) # Get test time
+print("\nTo remove", NUMBER_OF_ELEMENTS, "elements from the set")
+print("--> The runtime is", run_time, "milliseconds")
+
+============================================================================
+P1Q2
+
+def is_palindrome(string_1):
+    return is_palindromeHelper(string_1, 0, len(string_1) - 1)
+
+def is_palindromeHelper(string_1, low, high):
+    if high <= low: #Base case
+        return True
+    elif string_1[low] != string_1[high]: # Base case
+        return False
+    else:
+        is_palindromeHelper(string_1, low + 1, high - 1)
+
+def main():
+    print("Is moon a palindrome?", is_palindrome("moon"))
+    print("Is noon a palindrome?", is_palindrome("noon"))
+    print("Is a a palindrome?", is_palindrome("a"))
+    print("Is aba a palindrome?", is_palindrome("aba"))
+    print("Is ab a palindrome?", is_palindrome("ab"))
+
+main() # Call the main function
+
+============================================================================
+P1Q3
+
+# Program to find student with highest GPA
+class Student:
+    def __init__(self, name, hours, points):
+        self.name = name
+        self.hours = float(hours)
+        self.points = float(points)
+
+    def get_name(self):
+        return self.name
+
+    def get_hours(self):
+        return self.hours
+
+    def get_points(self):
+        return self.points
+
+    def gpa(self):
+        return self.points / self.hours
+
+def make_student(into_str):
+    # info_str is a tab_seperated line: name hours points
+    name, hours, points = info_str.splint("\t")
+
+    # Returns a corresponding Student object
+    return Student(name, hours, points)
+
+def main():
+    # Open the input file for reading
+    file_name = input("Enter the name of the grade file: ")
+    in_file = open(file_name, 'r')
+
+    # Set the first student in the file as the best student
+    best_student = make_student(in_file.readline())
+
+    # Process subsequent lines of the file\
+    for line in in_file:
+        # Turn a line into a student record
+        tempo = make_student(line)
+
+        # If this student is the best student so far, remember it
+        if tempo.gpa() > best_student.gpa():
+            best_student = tempo
+
+    in_file.close()
+
+    # Print information about the best student
+    print()
+    print("Best student: {}".format(best_student.get_name()))
+    print("Hours       : {:.0f}".format(best_student.get_hours()))
+    print("GPA         : {:.2f}".format(best_student.gpa()))
+
+main()
+
+============================================================================
+P1Q4
+
+# Import all definitions from tkinter
+from tkinter import *
+
+class WidgetsDemo:
+    def __init__(self):
+        # Create a window and set a title 
+        window = Tk()
+        window.title("Widgets Demo")
+
+        # Create and add a frame to window
+        frame1 = Frame(window)
+        frame1.pack()
+
+        # Create two variables to associate them with check and radio buttons
+        self.v1 = IntVar()
+        self.v2 = IntVar()
+
+        # Create a check button and add it to frame1
+        cbtBold = Checkbutton(frame1, text = "Bold", variable = self.v1,
+                              command = self.processCheckButton)
+
+        #Create two radio buttons and add them to frame1
+        rbRed = Radiobutton(frame1, text = "Red", bg = "red",
+                            variable = self.v2, value = 1,
+                            command = self.processRadiobutton)
+        rbYellow = RadioButton(frame1, text = "Yellow", bg = "yellow",
+                               variable = self.v2, value = 2,
+                               command = self.processRadiobutton)
+
+        # Organize check and radio buttons in frame1 using grid manager
+        cbtBold.grid(row = 1, column = 1)
+        rbRed.grid(row = 1, column = 2)
+        rbYellow.grid(row = 1, column = 3)
+
+        # Create and add another frame to window
+        frame2 = Frame(window)
+        frame2.pack()
+
+        # Create a label, an entry and a button and add them to frame2
+        label = Label(frame2, text = "Enter your name: ")
+        self.name = StringVar()
+        entryName = Entry(frame2, textvariable = self.name)
+        btGetName = Button(frame2, text = "Get Name",
+                           command = self.processButton)
+        message = Message(frame2, text = "It is a widgets demo")
+
+        # Organize the label, entry and button in frame2 using grid manager
+        label.grid(row = 1, column = 1)
+        entryName.grid(row = 1, column = 2)
+        btGetName.grid(row = 1, column = 3)
+        message.grid(row = 1, column = 4)
+
+        # Add text
+        text = Text(window) # Create and add text to the window
+        text.pack()
+        text.insert(END, "Tip\nThe best way to learn Tkinter is to read ")
+        text.insert(END, "these carefully designed examples and use them ")
+        text.insert(END, "to create your applications.")
+
+        # Create an event loop
+        window.mainloop()
+
+    # Invoke the processCheckbutton method when the check button is clicked
+    def processCheckbutton(self):
+        print("check button is " +
+              ("checked " if self.v1.get() == 1 else "unchecked"))
+
+    # Invoke the processRadiobutton method when the radio button is clicked
+    def processRadiobutton(self):
+        print(("Red" if self.v2.get() == 1 else "Yellow") + " is selected ")
+
+    # Invoke the processButton method when the GetName is clicked
+    def processButton(self):
+        print("Your name is " +  self.name.get())
+
+# Create GUI
+WidgetsDemo()
+
+
+
 
