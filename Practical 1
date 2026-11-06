@@ -53,7 +53,7 @@ print("\nTo remove", NUMBER_OF_ELEMENTS, "elements from the set")
 print("--> The runtime is", run_time, "milliseconds")
 
 ============================================================================
-P1Q2
+#P1Q2
 
 def is_palindrome(string_1):
     return is_palindromeHelper(string_1, 0, len(string_1) - 1)
@@ -76,7 +76,7 @@ def main():
 main() # Call the main function
 
 ============================================================================
-P1Q3
+#P1Q3
 
 # Program to find student with highest GPA
 class Student:
@@ -132,7 +132,7 @@ def main():
 main()
 
 ============================================================================
-P1Q4
+#P1Q4
 
 # Import all definitions from tkinter
 from tkinter import *
