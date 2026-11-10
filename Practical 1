@@ -95,11 +95,11 @@ class Student:
         return self.points
 
     def gpa(self):
-        return self.points / self.hours
+        return self.points / self. hours
 
-def make_student(into_str):
-    # info_str is a tab_seperated line: name hours points
-    name, hours, points = info_str.splint("\t")
+def make_student(info_str):
+    # info_str is a tab-seperated line: name hours points
+    name, hours, points = info_str.split("\t")
 
     # Returns a corresponding Student object
     return Student(name, hours, points)
@@ -112,13 +112,13 @@ def main():
     # Set the first student in the file as the best student
     best_student = make_student(in_file.readline())
 
-    # Process subsequent lines of the file\
+    # Process subsequent lines of the file
     for line in in_file:
         # Turn a line into a student record
         tempo = make_student(line)
 
         # If this student is the best student so far, remember it
-        if tempo.gpa() > best_student.gpa():
+        if tempo.gap() > best_student.gpa():
             best_student = tempo
 
     in_file.close()
