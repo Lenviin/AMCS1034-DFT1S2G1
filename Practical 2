@@ -77,6 +77,19 @@ print(fahrenheit)
 ============================================================================
 #P2Q9
 
+import math
+
+# get input
+radius = input("Enter a radius of a cylinder: ")
+height = input("Enter a height of a cylinder: ")
+
+# calculations
+surfaceArea = 2 * π * int(radius) * int(height) + 2 * π * int(radius) * int(radius)
+volume = π * int(radius) * int(radius) * int(height)
+
+# print output
+print("Its surface area and volume are ", surfaceArea, " and ", volume, " respectively.")
+
 ============================================================================
 #P2Q10
 
