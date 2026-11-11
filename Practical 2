@@ -93,8 +93,59 @@ print("Its surface area and volume are ", surfaceArea, " and ", volume, " respec
 ============================================================================
 #P2Q10
 
+# get input
+num = int(input("Enter a number between 0 and 1000: "))
+
+# calculations
+num1 = num % 10
+num = num // 10
+
+num2 = num % 10
+num = num // 10
+
+num3 = num % 10
+num = num // 10
+
+total = num1 + num2 + num3
+
+print("The sum of the digits is ", int(total))
+
 ============================================================================
 #P2Q11
 
+# get input
+saving = int(input("Enter the monthly saving amount: "))
+
+# calculations
+interestRate = 0.05 / 12
+month1 = saving * (1 + interestRate)
+month2 = (saving + month1) * (1 + interestRate)
+month3 = (saving + month2) * (1 + interestRate)
+month4 = (saving + month3) * (1 + interestRate)
+month5 = (saving + month4) * (1 + interestRate)
+month6 = (saving + month5) * (1 + interestRate)
+
+print("After the sixth month, the account value is ", round(month6,2))
+
 ============================================================================
 #P2Q12
+
+# get value
+print("Equation 1: ax + by = e")
+print("Equation 2: cx + dy = f\n")
+print("Enter a numerical value for each of the following 6 variables:")
+valueA = float(input("a = "))
+valueB = float(input("b = "))
+valueE = float(input("e = "))
+valueC = float(input("c = "))
+valueD = float(input("d = "))
+valueF = float(input("f = "))
+print("\nEquation 1: ", valueA , "x + ", valueB ,"y = ", valueE)
+print("Equation 2: ", valueC , "x + ", valueD ,"y = ", valueF)
+
+# calculation
+valueX = ((valueE * valueD) - (valueB * valueF)) / ((valueA * valueD) - (valueB * valueC))
+valueY = ((valueA * valueF) - (valueE * valueC)) / ((valueA * valueD) - (valueB * valueC))
+
+print("\nx = ", round(valueX,4))
+print("y = ", round(valueY,4))
