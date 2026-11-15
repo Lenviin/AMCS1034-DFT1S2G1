@@ -1,0 +1,85 @@
+#P4Q1
+
+score = float(input("Enter a score: " ))
+
+#Initialize the grade based on the score from question table
+grade = ""
+
+#Determine the grade based on the score
+if score >= 90 and score <= 100:
+    grade = "A" 
+elif score >= 80 and score < 90:
+    grade = "B"
+elif score >= 70 and score < 80:
+    grade = "C"
+elif score >= 60 and score < 70:
+    grade = "D"
+else:
+    grade = "F"
+
+match grade:
+    case "A" | "F":
+        print("You got an", grade, " for the test.")
+    case "B" | "C" | "D":
+        print("You got a", grade, "for the test.")
+    case _:
+        print("You have entered a wrong input")
+
+============================================================================
+#P4Q2
+
+#import python library
+import random
+
+while True:
+    #Generate a random value (1,2) to simulate the coin flip
+    answer = random.randint(1, 2)
+
+    #Prompt to enter the user guess
+    guess = int(input("Enter your guess as 1 for a head, 2 for a tail, or 0 to exit: "))
+
+    if guess == 0:
+        print("Thank you for playing the game.\n")
+        break
+
+    elif guess == 1 or guess == 2:
+        if answer == guess:
+            print("Your guess is correct!\n")
+            
+        else:
+            print("Your guess is incorrect! \n")
+    else:
+        print("Please enter either 0, 1 or 2. \n")  
+
+============================================================================
+#P4Q3
+
+hourly_rate = 40
+OT_regular = hourly_rate * 1.5
+OT_excess = hourly_rate * 2
+hourly_limit = 35
+Hourly_regular = 25
+
+#Read the hour input
+hours = float(input("Enter working hours: "))
+
+if hours <= 35:
+    regular_pay = hours * hourly_rate
+else:
+    regular_pay = hourly_limit * hourly_rate
+    hours -= hourly_limit
+
+if hours <= 25:
+    OT_pay = hours * OT_regular
+else:
+    OT_pay = 25 * OT_regular
+    hours -= 25
+    OT_pay += hours * OT_excess
+
+print("\n{:15s}: RM{:.2f}".format("Total salary", regular_pay + OT_pay))
+print("\n{:15s}: RM{:.2f}".format("->Regular salary", regular_pay))
+print("\n{:15s}: RM{:.2f}".format("->Overtime salary", OT_pay))
+
+============================================================================
+
+============================================================================
